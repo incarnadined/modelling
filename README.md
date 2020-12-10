@@ -11,7 +11,7 @@ A ~~slightly~~ _significantly_ more complicated particle simulator that works in
 ## Random Numbers
 ### `random_number.py`
 Some code that plots the length of a list of random numbers on the x-axis against the arithmetic mean of that length list on the y-axis. Unsurprisingly tends to 0.5 (with a range of 0-1).
-![Graph](images/random_number_convergance.png?raw=true)
+![Graph](images/random_number_convergance.PNG?raw=true)
 
 ### `calculating_pi.py`
 This one has a fun name to say... (although should say approximating)
