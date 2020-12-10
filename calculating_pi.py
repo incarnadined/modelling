@@ -49,22 +49,41 @@ def main():
     xlatin = []
     ylatin = []
 
+    # a variable to keep track of the closest approximation of pi
+    closest_guess = 0
+
 
     for i in range(low, high, step):
+        pi = 4*(gen_points_nprandom(i)/i)
+
+        if abs(np.pi - pi) < abs(np.pi - closest_guess):
+            closest_guess = pi
+
         xnp.append(i)
-        ynp.append(4*(gen_points_nprandom(i)/i))
+        ynp.append(pi)
 
     for i in range(low, high, step):
+        pi = 4*(gen_points_latinrandom(i)/i)
+
+        if abs(np.pi - pi) < abs(np.pi - closest_guess):
+            closest_guess = pi
+
         xlatin.append(i)
-        ylatin.append(4*(gen_points_latinrandom(i)/i))
+        ylatin.append(pi)
 
     plt.figure()
-    plt.plot(xnp, ynp, '-r')
-    plt.plot(xlatin, ylatin, '-c')
-    plt.plot(xnp, np.full(len(xnp), np.pi), '-b')
+
+    numpypi, = plt.plot(xnp, ynp, '-r', label='π according to numpy random sampling')
+    mypi, = plt.plot(xlatin, ylatin, '-c', label='π according to latin hypercubes sampling')
+    actualpi, = plt.plot(xnp, np.full(len(xnp), np.pi), '-b', label='π according to numpy')
+
+    plt.title(f'The closest guess was {closest_guess}')
+
+    # plot the legend for the different lines
+    plt.legend(handles=[numpypi, mypi, actualpi])
 
     plt.xlabel('Number of points')
-    plt.ylabel('Pi')
+    plt.ylabel('π approximation')
 
     plt.show()
     return
