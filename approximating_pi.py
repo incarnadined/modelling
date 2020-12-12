@@ -52,7 +52,7 @@ def main():
     # a variable to keep track of the closest approximation of pi
     closest_guess = 0
 
-
+    # Approximate pi wihth numpy random sampling
     for i in range(low, high, step):
         pi = 4*(gen_points_nprandom(i)/i)
 
@@ -62,6 +62,7 @@ def main():
         xnp.append(i)
         ynp.append(pi)
 
+    # Approximate pi with latin hypercube sampling
     for i in range(low, high, step):
         pi = 4*(gen_points_latinrandom(i)/i)
 
