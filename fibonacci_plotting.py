@@ -4,7 +4,9 @@ import random
 from latin_hypercubes import latin_hypercubes
 
 '''
+Uses Binet's formula to calculate the nth term of the Fibonacci sequence where n is any real number.
 
+Plots the results on a 3D graph to show the complex value of the sequence (for non-integer values of n), along with that numbers index
 '''
 
 def fibonacci(n):
