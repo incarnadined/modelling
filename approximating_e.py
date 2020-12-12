@@ -4,9 +4,14 @@ import random
 from latin_hypercubes import latin_hypercubes
 
 '''
-This program approximates e (Euler's number)
+This program approximates e (Euler's number).
 
-The graph shows the number of trials against their average (should tend to e)
+Each trial consists of taking uniformally distributed random numbers between zero and one and adding them together until the sum exceeds one.
+At that point, count the number of random numbers you added together. This is the result of each trial (typically 2-3).
+As you repeat trials, and average out the result of each, you converge on e.
+
+
+The graph shows the number of trials against their average result at that point (red) and the numpy recorded value for e (blue)
 '''
 
 def count_to_one():
@@ -27,18 +32,21 @@ def count_to_one():
 
 def main():
     # Number of trials to be run. Higher it is, the more accurate e will be
-    trials = 1000
+    num_trials = 10000
     x = []
     y = []
+    trials = []
     
-    for trial in range(1, trials+1):
+    for trial in range(1, num_trials+1):
         current_value = 0
 
         numbers_required = count_to_one()
-        e_rolling_avg = (sum(y)+numbers_required)/(len(y)+1)
+
+        e_rolling_avg = (sum(trials)+numbers_required)/(len(trials)+1)
 
         x.append(trial)
         y.append(e_rolling_avg)
+        trials.append(numbers_required)
 
     plt.figure()
 
