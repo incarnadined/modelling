@@ -12,10 +12,9 @@ def main():
     x = []
     y = []
 
-    for i in range(1, 100000):
-        if i % 100 == 0:
-            x.append(i)
-            y.append(gen_random_numbers(i))
+    for i in range(1, 100000, 100):
+        x.append(i)
+        y.append(gen_random_numbers(i))
 
     plt.figure()
     plt.plot(x, y, '-r')
