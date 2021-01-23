@@ -14,7 +14,7 @@ Some code that plots the length of a list of random numbers on the x-axis agains
 ![Graph](images/random_number_convergance.PNG?raw=true)
 
 ### `approximating_pi.py`
-This code uses the [Monte Carlo method](https://arxiv.org/ftp/arxiv/papers/1909/1909.13212.pdf) to approximate π, by calculating the ratio of points that fall in a circle compared to the number of points in the square that inscribes the circle. The graph plotted shows the real value of π according to numpy, along with an approximation using numpy random numbers as well as latin hypercube random numbers (explained at bottom)
+This code uses the [Monte Carlo method](https://arxiv.org/ftp/arxiv/papers/1909/1909.13212.pdf) to approximate π, by calculating the ratio of points that fall in a circle compared to the number of points in the square that inscribes the circle. The graph plotted shows the real value of π according to numpy, the average value of pi over time, along with an approximation using numpy random numbers as well as latin hypercube random numbers (explained at bottom)
 ![Graph](images/monte_carlo_pi_approximation.png?raw=true)
 
 ## Helper Functions
