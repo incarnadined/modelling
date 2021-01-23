@@ -13,6 +13,7 @@ The three lines plotted are:
     the value of pi according to numpy (dark blue)
     the value of pi according to np.random.uniform (red)
     the value of pi according to my latin hypercubes code (cyan)
+    the average value of pi so far (green)
 The most accurate represntation should be the cyan line
 '''
 
@@ -46,8 +47,11 @@ def main():
     high = 10000
     xnp = []
     ynp = []
+    ynpavg = []
     xlatin = []
     ylatin = []
+    ylatinavg = []
+    yavg = []
 
     # a variable to keep track of the closest approximation of pi
     closest_guess = 0
@@ -61,6 +65,7 @@ def main():
 
         xnp.append(i)
         ynp.append(pi)
+        ynpavg.append(sum(ynp)/len(ynp))
 
     # Approximate pi with latin hypercube sampling
     for i in range(low, high, step):
@@ -71,11 +76,15 @@ def main():
 
         xlatin.append(i)
         ylatin.append(pi)
+        ylatinavg.append(sum(ylatin)/len(ylatin))
+
+    yavg = [(ylatinavg[x]+ynpavg[x])/2 for x in range(0, len(ylatinavg))]
 
     plt.figure()
 
     numpypi, = plt.plot(xnp, ynp, '-r', label='π according to numpy random sampling')
     mypi, = plt.plot(xlatin, ylatin, '-c', label='π according to latin hypercubes sampling')
+    avg, = plt.plot(xlatin, yavg, '-g', label='π average')
     actualpi, = plt.plot(xnp, np.full(len(xnp), np.pi), '-b', label='π according to numpy')
 
     plt.title(f'The closest guess was {closest_guess}')
