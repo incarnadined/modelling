@@ -31,15 +31,16 @@ def gen_random_numbers(size):
 def main():
     x = []
     y = []
+    yavg = []
 
     for i in range(1, 1024):
         x.append(i)
         y.append(gen_random_numbers(i))
-
-    print(x, y)
+        yavg.append(sum(y)/len(y))
 
     plt.figure()
     plt.plot(x, y, '-r')
+    plt.plot(x, yavg, '-b')
 
     plt.xlabel('Length of list of random numbers')
     plt.ylabel('Average of random numbers in the list')
